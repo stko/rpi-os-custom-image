@@ -47,7 +47,7 @@ def set_username_password(img_path, username=RPI_OS_USERNAME, password=RPI_OS_PA
         f'echo "{password}" | openssl passwd -6 -stdin | tee -a userconf',
         # Workout the FAT32 boot filesystem offset (offset in bytes,
         # fdisk info in sectors) and copy the userconf there
-        f"OFFSET=$(fdisk -lu {img_path} "
+        f"OFFSET=$(LC_ALL=C fdisk -lu {img_path} "
             "| awk '/^Sector size/ {sector_size=$4} /FAT32 \(LBA\)/ {print $2 * sector_size}') && "
             f"mcopy -o -i {img_path}" "@@${OFFSET} userconf ::/",
         f"rm -d userconf",
