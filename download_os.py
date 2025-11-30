@@ -15,8 +15,8 @@ import requests
 ###############################################################################
 # Configuration data start
 
-DEFAULT_IMG_RELEASE = "bookworm"
-DEFAULT_IMG_TAG = "2023-10-10"
+DEFAULT_IMG_RELEASE = "trixie"
+DEFAULT_IMG_TAG = "2025-11-24"
 
 # Configuration data end
 ###############################################################################
@@ -33,6 +33,16 @@ ImageURL = namedtuple("ImageURL", ["url", "sha256_url"])
 # Buster Legacy version in https://downloads.raspberrypi.org/raspios_oldstable_lite_armhf/images/
 # Legacy info https://www.raspberrypi.com/news/new-old-functionality-with-raspberry-pi-os-legacy/
 OS_IMGS = {
+    "trixie": {
+        "2025-11-24": ImageURL(
+            url="https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2025-11-24/2025-11-24-raspios-trixie-armhf-lite.img.xz",
+            sha256_url="https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2025-11-24/2025-11-24-raspios-trixie-armhf-lite.img.xz.sha256",
+        ),
+        "2025-10-02": ImageURL(
+            url="https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2025-10-02/2025-10-01-raspios-trixie-armhf-lite.img.xz",
+            sha256_url="https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2025-10-02/2025-10-01-raspios-trixie-armhf-lite.img.xz.sha256",
+        ),
+    },
     "bookworm": {
         "2023-10-10": ImageURL(
             url="https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2023-10-10/2023-10-10-raspios-bookworm-armhf-lite.img.xz",
